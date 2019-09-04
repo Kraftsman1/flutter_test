@@ -1,8 +1,9 @@
-// Copyright 2018 The Flutter team. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
 import 'package:flutter/material.dart';
+
+//Import Tabs
+import 'Songs.dart';
+import 'Album.dart';
+import 'Discography.dart';
 
 void main() => runApp(MaterialApp(
       home: Home(),
@@ -18,7 +19,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      backgroundColor: Colors.purpleAccent,
+			backgroundColor: Colors.yellowAccent,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0.0,
@@ -32,31 +33,55 @@ class _HomeState extends State<Home> {
             onPressed: () {},
           )
         ],
-      ),
-      body: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[
-          new Container(
-              width: 150.0,
-              height: 150.0,
-              decoration: new BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: new DecorationImage(
-                      fit: BoxFit.fill,
-                      image:
-                          new NetworkImage("https://i.imgur.com/BoN9kdC.png")
-                  )
-              )
-          ),
-          new Column(
-            mainAxisAlignment: MainAxisAlignment.center, mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(
+			),
+			body: Stack(
+				children: <Widget>[
+	Container(
+						padding: EdgeInsets.fromLTRB(0, 90, 0, 0),
+						child: DefaultTabController(
+						length: 3,
+						child: new Scaffold(
+							backgroundColor: Colors.transparent,
+							appBar: new AppBar(
+								backgroundColor: Colors.yellowAccent,
+								automaticallyImplyLeading: false,
+								bottom: new TabBar(
+									tabs: <Widget>[
+										Tab(text: 'Songs',),
+										Tab(text: 'Album',),
+										Tab(text: 'Discography',)
+									],
+								),
+							),
+
+							body: TabBarView(
+								children: <Widget>[
+									Songs(),
+									Album(),
+									Discography(),
+								],
+							),
+						),
+					),
+					),
+
+
+					Row(
+						mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+						children: <Widget>[
+							CircleAvatar(
+								radius: 60.0,
+								backgroundImage: AssetImage('images/profile.png'),
+							),
+							Column(
+								mainAxisAlignment: MainAxisAlignment.center, mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.start,
+								children: <Widget>[
+									Text(
                 'Kidi',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 40.0,
-                  color: Colors.white
+                  color: Colors.black
                   )
               ),
               Text(
@@ -64,20 +89,27 @@ class _HomeState extends State<Home> {
                 textAlign: TextAlign.left,
                 style: TextStyle(
                   fontSize: 15.0,
-                  color: Colors.white
+                  color: Colors.black
                   )
               ),
               RaisedButton(
                 child: Text('Follow'),
                 onPressed: () {},
                 color: Colors.blue[400],
-                textColor: Colors.white,
+                textColor: Colors.black,
                 padding: EdgeInsets.fromLTRB(30, 10, 30, 10)
               )
-            ],
-          )
-        ],
-      ),
+								],
+							),
+						],
+					),
+					
+				
+				],
+			),
+
+			
+			
     );
   }
 }
