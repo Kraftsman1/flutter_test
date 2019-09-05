@@ -5,7 +5,7 @@ class Album extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Center(
-        child: Text('Error Code 404. Page you expect isnt here'),
+        child: Text('Error Code 404. Page you expect isnt here', style: TextStyle(color: Colors.white),),
       ),
     );
   }

@@ -5,7 +5,7 @@ class Discography extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Center(
-        child: Text('Nothing To See Here'),
+        child: Text('Nothing To See Here', style: TextStyle(color: Colors.white),),
       ),
     );
   }

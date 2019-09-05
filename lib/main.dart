@@ -19,7 +19,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-			backgroundColor: Colors.yellowAccent,
+      backgroundColor: Colors.blueGrey[900],
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0.0,
@@ -33,83 +33,132 @@ class _HomeState extends State<Home> {
             onPressed: () {},
           )
         ],
-			),
-			body: Stack(
-				children: <Widget>[
-	Container(
-						padding: EdgeInsets.fromLTRB(0, 90, 0, 0),
-						child: DefaultTabController(
-						length: 3,
-						child: new Scaffold(
-							backgroundColor: Colors.transparent,
-							appBar: new AppBar(
-								backgroundColor: Colors.yellowAccent,
-								automaticallyImplyLeading: false,
-								bottom: new TabBar(
-									tabs: <Widget>[
-										Tab(text: 'Songs',),
-										Tab(text: 'Album',),
-										Tab(text: 'Discography',)
-									],
-								),
-							),
-
-							body: TabBarView(
-								children: <Widget>[
-									Songs(),
-									Album(),
-									Discography(),
-								],
-							),
-						),
-					),
-					),
-
-
-					Row(
-						mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-						children: <Widget>[
-							CircleAvatar(
-								radius: 60.0,
-								backgroundImage: AssetImage('images/profile.png'),
-							),
-							Column(
-								mainAxisAlignment: MainAxisAlignment.center, mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.start,
-								children: <Widget>[
-									Text(
-                'Kidi',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 40.0,
-                  color: Colors.black
-                  )
+      ),
+      body: Stack(
+        children: <Widget>[
+          Container(
+            padding: EdgeInsets.fromLTRB(0, 90, 0, 0),
+            child: DefaultTabController(
+              length: 3,
+              child: new Scaffold(
+                backgroundColor: Colors.blueGrey[800],
+                appBar: new AppBar(
+                  backgroundColor: Colors.blueGrey[900],
+                  automaticallyImplyLeading: false,
+                  bottom: new TabBar(
+                    tabs: <Widget>[
+                      Tab(
+                        text: 'Songs',
+                      ),
+                      Tab(
+                        text: 'Album',
+                      ),
+                      Tab(
+                        text: 'Discography',
+                      )
+                    ],
+                  ),
+                ),
+                body: TabBarView(
+                  children: <Widget>[
+                    Songs(),
+                    Album(),
+                    Discography(),
+                  ],
+                ),
               ),
-              Text(
-                '256,086 Followers',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  fontSize: 15.0,
-                  color: Colors.black
-                  )
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              CircleAvatar(
+                radius: 60.0,
+                backgroundImage: AssetImage('images/profile.png'),
               ),
-              RaisedButton(
-                child: Text('Follow'),
-                onPressed: () {},
-                color: Colors.blue[400],
-                textColor: Colors.black,
-                padding: EdgeInsets.fromLTRB(30, 10, 30, 10)
-              )
-								],
-							),
-						],
-					),
-					
-				
-				],
-			),
-
-			
-			
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text('Kidi',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 40.0, color: Colors.white)),
+                  Text('256,086 Followers',
+                      textAlign: TextAlign.left,
+                      style: TextStyle(fontSize: 15.0, color: Colors.white)),
+                  RaisedButton(
+                      child: Text('Follow'),
+                      onPressed: () {},
+                      color: Colors.blue[400],
+                      textColor: Colors.white,
+                      padding: EdgeInsets.fromLTRB(30, 10, 30, 10))
+                ],
+              ),
+            ],
+          ),
+          Positioned(
+            bottom: 2,
+            left: .1,
+            right: .1,
+            child: Container(
+              color: Colors.blueGrey[900],
+              padding: EdgeInsets.all(5),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Row(
+                    children: <Widget>[
+                      CircleAvatar(
+                        radius: 30,
+                        backgroundImage: AssetImage('images/profile.png'),
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            'Tomorrow',
+                            style: TextStyle(fontSize: 20, color: Colors.white),
+                          ),
+                          Text(
+                            'Darko Vibes',
+                            style: TextStyle(fontSize: 15, color: Colors.white),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: <Widget>[
+                      IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.skip_previous,
+                          color: Colors.white,
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.pause,
+                          color: Colors.white,
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.skip_next,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
