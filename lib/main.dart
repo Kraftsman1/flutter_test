@@ -43,7 +43,7 @@ class _HomeState extends State<Home> {
               child: new Scaffold(
                 backgroundColor: Colors.blueGrey[800],
                 appBar: new AppBar(
-                  backgroundColor: Colors.blueGrey[900],
+                  backgroundColor: Colors.blueGrey[800],
                   automaticallyImplyLeading: false,
                   bottom: new TabBar(
                     tabs: <Widget>[
