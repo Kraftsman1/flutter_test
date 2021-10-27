@@ -87,12 +87,15 @@ class _HomeState extends State<Home> {
                   Text('256,086 Followers',
                       textAlign: TextAlign.left,
                       style: TextStyle(fontSize: 15.0, color: Colors.white)),
-                  RaisedButton(
+                  ElevatedButton(
                       child: Text('Follow'),
                       onPressed: () {},
-                      color: Colors.blue[400],
-                      textColor: Colors.white,
-                      padding: EdgeInsets.fromLTRB(30, 10, 30, 10))
+                      style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(Colors.blueGrey[900]),
+                          foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+                          padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0)),
+                      )
+                      ),
                 ],
               ),
             ],
